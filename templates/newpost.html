@@ -5,16 +5,16 @@
     <form method="POST">
         <label>
             Title for your new post:
-            <input name="title" type="text" value="{{blog_title}}"/>
+            <div><input name="title" type="text" value="{{blog_title}}"/></div>
             {% if blog_title_error %}
-                <span class="error">Please fill in the title</span>
+                <div class="error">Please fill in the title</div>
             {% endif %}
-            Your new post body
-            <textarea name="body" type="text" value="{{blog_body}}"></textarea>
+            Your new post body:
+            <div><textarea name="body" type="text" value="{{blog_body}}"></textarea></div>
             {% if blog_body_error %}
-                <span class="error">Please fill in the body</span>
+                <div class="error">Please fill in the body</div>
             {% endif %}
         </label>
-        <input type="submit" value="Add Entry" />
+        <div><input type="submit" value="Add Entry" /></div>
     </form>
 {% endblock %}
