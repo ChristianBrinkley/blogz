@@ -10,7 +10,14 @@
         {% for blog in blogs %}
         <li>
             <a href="/blog?id={{blog.id}}">{{blog.title}}</a>
-            {{blog.body}}
+            <br/>{{blog.body}}
+            <br/>Written by 
+                {% for user in users%}
+                    {% if user.id == blog.owner_id %}
+                        <a href="blog?user={{user.id}}">{{user.username}}</a>
+                    {% endif %}
+                {% endfor %}
+            on {{blog.date}} 
         </li>
         <hr />
         {% endfor %}

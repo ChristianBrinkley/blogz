@@ -11,8 +11,28 @@
 </head>
 
 <body>
-    <div><a href="/blog">Main Blog Page</a></div>
-    <div><a href="/newpost">Add a Blog Entry</a></div>
+    <table>
+        <tr>
+            <td width='auto'><a href="/blog">Main Blog Page</a></td>
+            <td width = '20em' align = 'center'>|</td>
+            <td width='auto'><a href='/'>User Index</a></td>
+            <td width = '20em' align = 'center'>|</td>
+            <td width='auto'><a href="/newpost">Add a Blog Entdy</a></td>
+            {% if not 'username' in session %}
+            <td width = '20em' align = 'center'>|</td>
+            <td width='auto'><a href="/login">Login</a></td>
+            {% endif %}
+            <td width = '20em' align = 'center'>|</td>
+            <td width='auto'><a href='/logout'>Log Out</a></td>            
+        </tr>
+    </table>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category, message in messages %}
+            <li class='{{category}}'>{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
 {% block content %}
 
 {% endblock %}
